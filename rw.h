@@ -11,6 +11,7 @@ public:
   static std::string readFile(std::string path);
   static std::vector<std::vector<std::string>> readFileTokenize(std::string path);
   static std::string split(std::string& tokens);
+  static void printTokens(std::vector<std::vector<std::string>> sss);
 };
 #endif
 

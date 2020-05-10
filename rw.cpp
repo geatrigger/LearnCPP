@@ -46,11 +46,13 @@ std::vector<std::vector<std::string>> RW::readFileTokenize(std::string path)
   {
     if(*it == ' ')
     {
+      if(token->length() == 0) continue;
       ss->push_back(*token);
       token = new std::string("");
     }
     else if(*it == '\n')
     {
+      if(token->length() == 0) continue;
       ss->push_back(*token);
       token = new std::string("");
       sss.push_back(*ss);
@@ -63,9 +65,19 @@ std::vector<std::vector<std::string>> RW::readFileTokenize(std::string path)
   }
   return sss;
 }
-std::string split(std::string& tokens)
+std::string RW::split(std::string& tokens)
 {
   std::string s = "";
   return s;
 }
-
+void RW::printTokens(std::vector<std::vector<std::string>> sss)
+{
+  for(std::vector<std::vector<std::string>>::iterator i = sss.begin(); i != sss.end(); i++)
+  {
+    for(std::vector<std::string>::iterator j = i->begin(); j != i->end(); j++)
+    {
+      std::cout << *j << " ";
+    }
+    std::cout << "\n";
+  }
+}
